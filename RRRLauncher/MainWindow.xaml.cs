@@ -28,7 +28,6 @@ namespace RRRLauncher
 <!DOCTYPE project PUBLIC |-//audacityproject-1.3.0//DTD//EN| |http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd| >
 <project xmlns=|http://audacity.sourceforge.net/xml/| projname=|empty_data| version=|1.3.0| audacityversion=|2.0.5| sel0=|0.0000000000| sel1=|0.0000000000| vpos=|0| h=|0.0000000000| zoom=|86.1328125000| rate=|44100.0|>
 	<tags/>
-	<wavetrack name=|Audio Track| channel=|2| linked=|0| mute=|0| solo=|0| height=|150| minimized=|0| isSelected=|1| rate=|44100| gain=|1.0| pan=|0.0|/>
 </project>";
 
 
@@ -49,26 +48,33 @@ namespace RRRLauncher
             { 
                 //for testing
                 //Create Test
-                //queryString.Add("action", "Create");
-                //queryString.Add("path", @"C:\Users\SHAWN\temp\test\foo.aup");
+                queryString.Add("action", "Create");
+                queryString.Add("path", @"C:\Users\SHAWN\temp\test\foo.aup");
 
                 //Copy Test
-                queryString.Add("action", "Copy");
-                queryString.Add("src", @"C:\Users\SHAWN\temp\test\foo.aup");
-                queryString.Add("dest", @"C:\Users\SHAWN\temp\test2\foo.aup");
+                //queryString.Add("action", "Copy");
+                //queryString.Add("src", @"C:\Users\SHAWN\temp\test\foo.aup");
+                //queryString.Add("dest", @"C:\Users\SHAWN\temp\test2\foo.aup");
             }
 
-            if (queryString["action"].Equals("Create", StringComparison.InvariantCultureIgnoreCase))
+            try
             {
-                CreateAudacityAndLaunch(queryString);
+                if (queryString["action"].Equals("Create", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    CreateAudacityAndLaunch(queryString);
+                }
+                else if (queryString["action"].Equals("Copy", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    CopyFileAndLaunch(queryString);
+                }
+                else
+                {
+                    MessageBox.Show("I dont know what you want me to do!");
+                }
             }
-            else if (queryString["action"].Equals("Copy", StringComparison.InvariantCultureIgnoreCase))
+            catch (Exception ex)
             {
-                CopyFileAndLaunch(queryString);
-            }
-            else
-            {
-                MessageBox.Show("I dont know what you want me to do!");
+                MessageBox.Show(ex.ToString());
             }
         }
 
