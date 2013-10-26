@@ -63,7 +63,7 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>962D22EC6FEACB2B21ABE99B56BA1EA592F49365</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>E4A2EEF58E40AD2FB89D19F9F39B607837887F83</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>RRRLauncher_TemporaryKey.pfx</ManifestKeyFile>
